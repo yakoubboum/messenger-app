@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Message;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Group extends Model
 {
+
+    use HasFactory;
+    
     protected $fillable = [
         'name',
         'description',
@@ -25,6 +32,8 @@ class Group extends Model
 
     public function owner()
     {
-        return $this->belongsTo(User::class,'owner_id','id');
+        return $this->belongsTo(User::class, 'owner_id', 'id');
     }
+
+
 }
